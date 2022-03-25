@@ -1,0 +1,8 @@
+<nav class="main-menu">
+  <div *ngFor="let item of itemButtons">
+    <app-button [text]="item.name" type="link"></app-button>
+  </div>
+  <div class="logout">
+    <i class="three-lines"></i>
+  </div>
+</nav>

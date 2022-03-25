@@ -1,0 +1,16 @@
+.link {
+    border: none;
+    background-color: transparent;
+    color: white;
+    display: table-cell;
+    vertical-align: middle;
+    width: 250px;
+    height: 60px;
+    font-family: "Titillium Web", sans-serif;
+    cursor: pointer;
+}
+
+.link:hover {
+    color: #fff;
+    background-color: #ee9b00;
+}
