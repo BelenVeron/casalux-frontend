@@ -1,2 +1,8 @@
-<app-nav [itemButtons]="itemButtons"></app-nav>
-<app-body [item]="item"></app-body>
+<app-nav [itemButtons]="itemButtons" (emitterId)="setItem($event)"></app-nav>
+<app-body 
+    *ngIf="item" 
+    [item]="item" 
+    [photos]="item.kitchens[0].photos"
+    [photo]="item.kitchens[0].photos[0]"
+    [kitchenSelected]="item.kitchens[0].name">
+</app-body>

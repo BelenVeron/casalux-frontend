@@ -1,3 +1,40 @@
 :host {
     margin-left: 80px;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 600px;
+}
+
+.gallery-index {
+    overflow: auto;
+    width: 300px;
+}
+
+
+.main-gallery {
+    background-color: rgb(184, 184, 184);
+    width: 100%;
+    margin-left: 30px;
+}
+
+
+.gallery-container {
+    background-color: rgb(184, 184, 184);
+    width: 700px;
+    margin-left: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.horizontal-gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
 }

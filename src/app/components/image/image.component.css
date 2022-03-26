@@ -1,0 +1,37 @@
+.medium img{
+    width: 200px;
+    height: 130px;
+    object-fit: cover;
+}
+
+.tiny img{
+    width: 100px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.small img {
+    width: 100px;
+    height: 60px;
+    object-fit: cover;
+    margin: 0px 5px 0px 5px;
+    cursor: pointer;
+    transition: .5s;
+    opacity: 50%;
+}
+
+.small img:hover {
+    width: 130px;
+    height: 80px;
+    transition: .5s;
+    opacity: 100%;
+}
+
+.big img{
+    width: 700px;
+    height: 420px;
+}
+
+.pointer {
+    cursor: pointer;
+}

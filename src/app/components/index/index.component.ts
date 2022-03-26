@@ -24,8 +24,12 @@ export class IndexComponent implements OnInit {
     this.getItems();
   }
 
-  setItem(id: number): void {
-    this.item = this.items[id];
+  setItem(id: string): void {
+    this.items.map(item => {
+      if (item.id == id){
+        this.item = item;
+      }
+    })
   }
 
   setItemButton(): void {
@@ -37,23 +41,15 @@ export class IndexComponent implements OnInit {
     });
   }
 
-  setImageUrl(data: Item[]): void {
-    data.forEach(item => {
-
-    })
-  }
 
   getItems(): void {
     this.collectionService.get().subscribe(
       data => {
         this.items = data;
-        this.setImageUrl(data);
         this.setItemButton();
         if (data.length) {
-          this.setItem(0);
+          this.setItem(data[0].id);
         }
-        console.log("Index:")
-        console.log(this.items)
       },
       err => {
        

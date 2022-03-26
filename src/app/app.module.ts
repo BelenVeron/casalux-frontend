@@ -8,6 +8,8 @@ import { NavComponent } from './components/nav/nav.component';
 import { BodyComponent } from './components/body/body.component';
 import { ButtonComponent } from './components/button/button.component';
 import { TitleComponent } from './components/title/title.component';
+import { ImageComponent } from './components/image/image.component';
+import { DescriptionComponent } from './components/description/description.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { TitleComponent } from './components/title/title.component';
     NavComponent,
     BodyComponent,
     ButtonComponent,
-    TitleComponent
+    TitleComponent,
+    ImageComponent,
+    DescriptionComponent
   ],
   imports: [
     BrowserModule,

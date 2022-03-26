@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ItemButton } from 'src/app/models/item-button';
 
 @Component({
@@ -9,10 +9,15 @@ import { ItemButton } from 'src/app/models/item-button';
 export class NavComponent implements OnInit {
 
   @Input() itemButtons: ItemButton[] = [];
+  @Output() emitterId: EventEmitter<string> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  sendId(id: string) {
+    this.emitterId.emit(id);
   }
 
 }

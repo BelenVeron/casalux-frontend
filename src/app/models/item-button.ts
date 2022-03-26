@@ -1,10 +1,10 @@
 export class ItemButton {
 
-    id: number;
+    id: string;
     name: string;
    
     constructor(
-        id: number,
+        id: string,
         name: string,
     ) {
         this.id = id;

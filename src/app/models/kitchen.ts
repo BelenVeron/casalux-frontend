@@ -2,12 +2,12 @@ import { Photo } from "./photo";
 
 export class Kitchen {
 
-    id: number;
+    id: string;
     name: string;
     photos: Photo[];
 
     constructor(
-        id: number,
+        id: string,
         name: string,
         photos: Photo[],
     ) {

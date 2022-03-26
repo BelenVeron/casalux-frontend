@@ -12,5 +12,16 @@
 
 .link:hover {
     color: #fff;
-    background-color: #ee9b00;
+    background-color: rgb(42, 112, 42);
+}
+
+.text {
+    border: none;
+    background-color: inherit;
+    padding: 2px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    color: rgb(0, 165, 0);
+    border-bottom: 1px solid rgb(0, 165, 0);
 }

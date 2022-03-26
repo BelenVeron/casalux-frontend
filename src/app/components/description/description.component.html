@@ -1,0 +1,18 @@
+<div [class]="classDescription">
+    <div>
+        <h1 class="title">{{kitchenSelected}}</h1>
+        <p class="description">{{textDescription}}</p>
+    </div>
+    <div class="vertical-gallery">
+        <p>WHAT YOU HAVE IN THIS COLLECTION</p>
+        <div class="images">
+            <app-image 
+                *ngFor="let item of contents"
+                [type]="'tiny'" 
+                [src]="imageContainerURL+item.image.slice(2)"
+                >
+            </app-image>
+        </div>
+        <app-button [type]="'text'" [text]="textButton"></app-button>
+    </div>
+</div>

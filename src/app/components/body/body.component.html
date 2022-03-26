@@ -1,20 +1,32 @@
 <app-title></app-title>
 <div class="container">
     <div class="gallery-index">
-        <div class="gallery-image">
-            <img [src]="imageContainerURL+item.image.slice(2)" alt="">
-        </div>
-        <div class="vertical-gallery">
-
+        <app-image [type]="'medium'" [src]="imageContainerURL+item.image.slice(2)"></app-image>
+        <app-image 
+            *ngFor="let item of item.kitchens"
+            [type]="'medium pointer'" 
+            [src]="imageContainerURL+item.photos[0].image.slice(2)"
+            (click)="setPhotos(item.id)"
+            >
+        </app-image>
+    </div>
+    <div class="main-gallery">
+        <div class="gallery-container">
+            <div class="horizontal-gallery">
+                <app-image 
+                    *ngFor="let item of photos"
+                    [type]="'small'" 
+                    [src]="imageContainerURL+item.image.slice(2)"
+                    (click)="setPhoto(item.id)"
+                    >
+                </app-image>
+            </div>
+            <app-image [type]="'big'" [src]="imageContainerURL+photo.image.slice(2)"></app-image>
         </div>
     </div>
-    <div class="division"></div>
-    <div class="gallery-container">
-        <div class="horizontal-gallery">
-
-        </div>
-        <div class="gallery-image">
-
-        </div>
-    </div>
+    <app-description 
+        [textDescription]="item.description"
+        [contents]="item.contents"
+        [kitchenSelected]="kitchenSelected">
+    </app-description>
 </div>
