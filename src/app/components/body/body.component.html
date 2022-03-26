@@ -1,12 +1,18 @@
 <app-title></app-title>
 <div class="container">
     <div class="gallery-index">
-        <app-image [type]="'medium'" [src]="imageContainerURL+item.image.slice(2)"></app-image>
         <app-image 
-            *ngFor="let item of item.kitchens"
+            [type]="'medium'" 
+            [src]="imageContainerURL+item.image.slice(2)"
+            [text]="item.name">
+        </app-image>
+        <app-image 
+            *ngFor="let item of item.kitchens; let i=index"
             [type]="'medium pointer'" 
             [src]="imageContainerURL+item.photos[0].image.slice(2)"
-            (click)="setPhotos(item.id)"
+            [text]="item.name"
+            (click)="setPhotos(item.id, i)"
+            [active]="active[i]"
             >
         </app-image>
     </div>
@@ -21,7 +27,12 @@
                     >
                 </app-image>
             </div>
-            <app-image [type]="'big'" [src]="imageContainerURL+photo.image.slice(2)"></app-image>
+            <app-image 
+                [type]="'big'" 
+                [src]="imageContainerURL+photo.image.slice(2)">
+            </app-image>
+            <h3>CASALUX Luxury Kitchen Collection</h3>
+            <app-button class="heart" [type]="'heart'"></app-button>
         </div>
     </div>
     <app-description 

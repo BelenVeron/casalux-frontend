@@ -9,7 +9,8 @@ import { environment } from 'src/environments/environment';
 })
 export class DescriptionComponent implements OnInit {
 
-  @Input() classDescription: string = 'more';
+  type: string = 'tiny'
+  @Input() classDescription: string = 'less';
   @Input() kitchenSelected: string = '';
   @Input() textButton: string = 'SEE MORE';
   @Input() contents: Content[] = [];
@@ -19,6 +20,18 @@ export class DescriptionComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  setClassDescription(): void {
+    if (this.classDescription === 'less') {
+      this.classDescription = 'more';
+      this.type = 'small-medium'
+      this.textButton = 'SEE-LESS'
+    } else {
+      this.classDescription = 'less';
+      this.type = 'tiny'
+      this.textButton = 'SEE-MORE'
+    }
   }
 
 }

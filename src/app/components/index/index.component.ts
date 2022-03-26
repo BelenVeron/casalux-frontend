@@ -15,6 +15,7 @@ export class IndexComponent implements OnInit {
   itemButtons: ItemButton[] = [];
   item!: Item;
   imageContainerURL = environment.imageContainerURL;
+  active:boolean[] = [];
 
   constructor(
     private collectionService: CollectionService
@@ -30,6 +31,8 @@ export class IndexComponent implements OnInit {
         this.item = item;
       }
     })
+    this.active = [];
+    this.active.push(true);
   }
 
   setItemButton(): void {

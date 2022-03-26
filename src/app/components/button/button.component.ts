@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -7,12 +7,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
 
-  @Input() text: string = 'click'
-  @Input() type: string = ''
+  @Input() text: string = '';
+  @Input() type: string = '';
+  @Input() like: boolean = false;
+  @Output() sendLike: EventEmitter<boolean> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  setLike(): void {
+    this.like = !this.like;
+    this.sendLike.emit(this.like);
   }
 
 }

@@ -9,6 +9,8 @@ export class ImageComponent implements OnInit {
 
   @Input() src: string = '';
   @Input() type: string = '';
+  @Input() text: string = '';
+  @Input() active: boolean = false;
 
   constructor() { }
 

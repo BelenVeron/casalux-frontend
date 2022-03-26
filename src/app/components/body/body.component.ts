@@ -16,13 +16,14 @@ export class BodyComponent implements OnInit {
   imageContainerURL = environment.imageContainerURL;
   @Input() photos: Photo[] = [];
   @Input() photo!: Photo;
+  @Input() active: boolean[] = [true];
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  setPhotos(id: string): void {
+  setPhotos(id: string, i:number): void {
    this.item.kitchens.map(item => {
       if (item.id == id){
         this.photos = item.photos;
@@ -30,6 +31,10 @@ export class BodyComponent implements OnInit {
         this.kitchenSelected = item.name;
       }
     })
+    this.active = [];
+    for (let index = 0; index < this.item.kitchens.length; index++) {
+      (index == i)?this.active[index]=true:this.active[index]=false
+    }
   }
 
   setPhoto(id: string): void {

@@ -1,4 +1,4 @@
-<div [class]="classDescription">
+<div [class]="'container '+classDescription">
     <div>
         <h1 class="title">{{kitchenSelected}}</h1>
         <p class="description">{{textDescription}}</p>
@@ -8,11 +8,12 @@
         <div class="images">
             <app-image 
                 *ngFor="let item of contents"
-                [type]="'tiny'" 
+                [type]="type" 
                 [src]="imageContainerURL+item.image.slice(2)"
+                [text]="item.name"
                 >
             </app-image>
         </div>
-        <app-button [type]="'text'" [text]="textButton"></app-button>
+        <app-button [type]="'text'" [text]="textButton" (click)="setClassDescription()"></app-button>
     </div>
 </div>

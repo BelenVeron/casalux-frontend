@@ -1,4 +1,14 @@
-.more {
+.title {
+    margin-top: 50px;
+    font-size: 40px;
+    color: rgb(100, 100, 100);
+    text-transform: uppercase;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-bottom: 50px;
+    border-bottom: 3px solid rgba(66, 66, 66, 0.699);
+}
+
+.container {
     position: absolute;
     background-color: rgb(170, 170, 170);
     width: 180px;
@@ -13,23 +23,37 @@
     padding: 0px 15px 0px 15px;
 }
 
-.title {
-    margin-top: 50px;
-    font-size: 40px;
-    color: rgb(100, 100, 100);
-    text-transform: uppercase;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
 
-.description {
-    border-top: 1px solid black;
-    padding-top: 20px;
+.less .description {
+    display: block;
 }
 
 .vertical-gallery {
     margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.images :not(:nth-child(-n+2)){
+.less .images :not(:nth-child(-n+2)){
     display: none;
+}
+
+.more .description {
+    display: none;
+}
+
+.more .images {
+    max-height: 400px;
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    overflow-y: scroll;
+    box-shadow: inset 0 0 4px #707070;
+}
+
+::-webkit-scrollbar-thumb {
+    background: grey; 
 }

@@ -1,3 +1,6 @@
-<div [ngClass]="type">
-    <img [src]="src" >
+<div [ngClass]="type" >
+    <div [ngClass]="active == true ? 'active': 'inactive'">
+        <img [src]="src" >
+        <h3 *ngIf="text">{{text}}</h3>
+    </div>
 </div>

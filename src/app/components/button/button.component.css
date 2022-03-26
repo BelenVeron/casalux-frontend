@@ -18,10 +18,30 @@
 .text {
     border: none;
     background-color: inherit;
-    padding: 2px 20px;
-    font-size: 16px;
+    padding: 10px 20px 4px 20px;
+    font-size: 10px;
     cursor: pointer;
     display: inline-block;
     color: rgb(0, 165, 0);
     border-bottom: 1px solid rgb(0, 165, 0);
+}
+
+.heart {
+    background-color: #d6d6d6;
+    text-decoration: none;
+    border: none;
+    text-align: center;
+    display: flex;
+    padding: 5px 5px;
+    cursor: pointer;
+}
+
+.heart-icon-liked {
+    fill: red;
+    width: 20px;
+}
+
+.heart-icon {
+    fill: rgba(255, 0, 0, 0.397);
+    width: 20px;
 }
