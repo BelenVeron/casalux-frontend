@@ -22,6 +22,10 @@ export class DescriptionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * When click the button show all the photos
+   * and bigger with te description, or hide them
+   */
   setClassDescription(): void {
     if (this.classDescription === 'less') {
       this.classDescription = 'more';

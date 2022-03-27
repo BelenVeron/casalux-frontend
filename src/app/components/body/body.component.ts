@@ -28,6 +28,14 @@ export class BodyComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Set photos in the vertical gallery, depend the
+   * number in the collection.
+   * And set the active.
+   * 
+   * @param id 
+   * @param i 
+   */
   setPhotos(id: string, i:number): void {
    this.item.kitchens.map(item => {
       if (item.id == id){
@@ -43,6 +51,12 @@ export class BodyComponent implements OnInit {
     }
   }
 
+  /**
+   * Set photo in the horizontal gallery, depend
+   * of the number in the kitchen
+   * 
+   * @param id 
+   */
   setPhoto(id: string): void {
    this.kitchenSelected.photos.map(item => {
       if (item.id == id){
@@ -52,6 +66,9 @@ export class BodyComponent implements OnInit {
     })
   }
 
+  /**
+   * Set if the photo had selected in favorite
+   */
   setFavoritePhoto(): void {
     this.favoriteItem.kitchens.map(favoriteKitchen => {
       if (favoriteKitchen.id == this.kitchenSelected.id) {
@@ -62,9 +79,12 @@ export class BodyComponent implements OnInit {
         })
       }
     })
-    console.log(this.favoritePhoto, this.photo)
   }
 
+  /**
+   * Emit an event with the item in favorite
+   * @param event 
+   */
   sendFavoritePhoto(event: any): void {
     this.favoritePhoto.favorite = event
     this.favoriteItem.kitchens.map(favoriteKitchen => {
@@ -76,7 +96,6 @@ export class BodyComponent implements OnInit {
         })
       }
     })
-    console.log(this.favoriteItem)
     this.sendFavoriteItem.emit(this.favoriteItem);
   }
 
