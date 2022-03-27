@@ -22,7 +22,7 @@
         <div class="gallery-container">
             <div class="horizontal-gallery">
                 <app-image 
-                    *ngFor="let item of photos"
+                    *ngFor="let item of kitchenSelected.photos"
                     [type]="'small'" 
                     [src]="imageContainerURL+item.image.slice(2)"
                     (click)="setPhoto(item.id)"
@@ -35,13 +35,18 @@
                 [carousel]="active">
             </app-image>
             <h3>CASALUX Luxury Kitchen Collection</h3>
-            <app-button class="heart" [type]="'heart'"></app-button>
+            <app-button 
+                class="heart" 
+                [type]="'heart'"
+                [like]="favoritePhoto.favorite"
+                (sendLike)="sendFavoritePhoto($event)">
+            </app-button>
            
         </div>
     </div>
     <app-description 
         [textDescription]="item.description"
         [contents]="item.contents"
-        [kitchenSelected]="kitchenSelected">
+        [kitchenSelected]="kitchenSelected.name">
     </app-description>
 </div>

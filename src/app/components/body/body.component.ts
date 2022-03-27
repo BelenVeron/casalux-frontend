@@ -1,5 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FavoriteCollection } from 'src/app/models/favorite/favorite-collection';
+import { FavoritePhoto } from 'src/app/models/favorite/favorite-photo';
 import { Item } from 'src/app/models/item';
+import { Kitchen } from 'src/app/models/kitchen';
 import { Photo } from 'src/app/models/photo';
 import { environment } from 'src/environments/environment';
 
@@ -11,13 +14,15 @@ import { environment } from 'src/environments/environment';
 export class BodyComponent implements OnInit {
 
   @Input() item!: Item;
-  @Input() kitchenSelected: string = '';
+  @Input() kitchenSelected!: Kitchen;
   srcGalleryImage: string = '';
   imageContainerURL = environment.imageContainerURL;
-  @Input() photos: Photo[] = [];
   @Input() photo!: Photo;
   @Input() active: boolean[] = [];
-
+  @Input() favoriteItem!: FavoriteCollection;
+  @Input() favoritePhoto!: FavoritePhoto;
+  @Output() sendFavoriteItem: EventEmitter<FavoriteCollection> = new EventEmitter();
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -26,9 +31,10 @@ export class BodyComponent implements OnInit {
   setPhotos(id: string, i:number): void {
    this.item.kitchens.map(item => {
       if (item.id == id){
-        this.photos = item.photos;
+        this.kitchenSelected = item;
+        this.kitchenSelected.photos = item.photos;
         this.photo = item.photos[0];
-        this.kitchenSelected = item.name;
+        this.setFavoritePhoto();
       }
     })
     this.active = [];
@@ -38,11 +44,40 @@ export class BodyComponent implements OnInit {
   }
 
   setPhoto(id: string): void {
-   this.photos.map(item => {
+   this.kitchenSelected.photos.map(item => {
       if (item.id == id){
         this.photo = item;
+        this.setFavoritePhoto();
       }
     })
+  }
+
+  setFavoritePhoto(): void {
+    this.favoriteItem.kitchens.map(favoriteKitchen => {
+      if (favoriteKitchen.id == this.kitchenSelected.id) {
+        favoriteKitchen.photos.map(favoritePhoto => {
+          if (favoritePhoto.id == this.photo.id) {
+            this.favoritePhoto = favoritePhoto;
+          }
+        })
+      }
+    })
+    console.log(this.favoritePhoto, this.photo)
+  }
+
+  sendFavoritePhoto(event: any): void {
+    this.favoritePhoto.favorite = event
+    this.favoriteItem.kitchens.map(favoriteKitchen => {
+      if (favoriteKitchen.id == this.kitchenSelected.id) {
+        favoriteKitchen.photos.map(favoritePhoto => {
+          if (favoritePhoto.id == this.favoritePhoto.id) {
+            favoritePhoto.favorite = this.favoritePhoto.favorite;
+          }
+        })
+      }
+    })
+    console.log(this.favoriteItem)
+    this.sendFavoriteItem.emit(this.favoriteItem);
   }
 
 }
