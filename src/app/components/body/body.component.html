@@ -31,10 +31,12 @@
             </div>
             <app-image 
                 [type]="'big'" 
-                [src]="imageContainerURL+photo.image.slice(2)">
+                [src]="imageContainerURL+photo.image.slice(2)"
+                [carousel]="active">
             </app-image>
             <h3>CASALUX Luxury Kitchen Collection</h3>
             <app-button class="heart" [type]="'heart'"></app-button>
+           
         </div>
     </div>
     <app-description 

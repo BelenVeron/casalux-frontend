@@ -11,6 +11,7 @@ export class ImageComponent implements OnInit {
   @Input() type: string = '';
   @Input() text: string = '';
   @Input() active: boolean = false;
+  @Input() carousel: boolean[] = [];
 
   constructor() { }
 

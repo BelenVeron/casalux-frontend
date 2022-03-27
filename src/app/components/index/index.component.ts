@@ -26,13 +26,16 @@ export class IndexComponent implements OnInit {
   }
 
   setItem(id: string): void {
+    this.active = [];
     this.items.map(item => {
       if (item.id == id){
         this.item = item;
+        for (let index = 0; index < item.kitchens.length; index++) {
+          (index === 0)?this.active.push(true):this.active.push(false);
+          
+        }
       }
     })
-    this.active = [];
-    this.active.push(true);
   }
 
   setItemButton(): void {

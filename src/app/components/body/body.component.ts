@@ -16,7 +16,7 @@ export class BodyComponent implements OnInit {
   imageContainerURL = environment.imageContainerURL;
   @Input() photos: Photo[] = [];
   @Input() photo!: Photo;
-  @Input() active: boolean[] = [true];
+  @Input() active: boolean[] = [];
 
   constructor() { }
 
