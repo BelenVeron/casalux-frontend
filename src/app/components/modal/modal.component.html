@@ -1,0 +1,21 @@
+<div class="wrapper">
+	<div [ngClass]="'modal_box ' + active">
+		<div class="modal_bg_shadow"></div>
+		<div class="modal_box_wrap">
+            <div class="container">
+                <div class="modal_header">
+                    <h1>Be Aware</h1>
+                </div>
+                <div class="modal_body">
+                    <p>The section that you are about to enter has the ability to be saved if you select the heart.</p>
+                    <app-button type="more" text="See More..." (click)="close()"></app-button>
+                </div>
+                <div class="modal_footer">
+                    <app-button type="border" text="PROCEED TO SECTION" (click)="close()"></app-button>
+                    <app-checkbox [items]="['Don\'t show this next time']"></app-checkbox>
+                    <app-button type="login" text="Go to" link="Login" (click)="close()"></app-button>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>

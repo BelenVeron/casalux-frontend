@@ -9,6 +9,7 @@ export class ButtonComponent implements OnInit {
 
   @Input() text: string = '';
   @Input() type: string = '';
+  @Input() link: string = '';
   @Input() like: boolean = false;
   @Output() sendLike: EventEmitter<boolean> = new EventEmitter();
 

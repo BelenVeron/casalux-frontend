@@ -10,6 +10,8 @@ import { ButtonComponent } from './components/button/button.component';
 import { TitleComponent } from './components/title/title.component';
 import { ImageComponent } from './components/image/image.component';
 import { DescriptionComponent } from './components/description/description.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { CheckboxComponent } from './components/checkbox/checkbox.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { DescriptionComponent } from './components/description/description.compo
     ButtonComponent,
     TitleComponent,
     ImageComponent,
-    DescriptionComponent
+    DescriptionComponent,
+    ModalComponent,
+    CheckboxComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
-<button *ngIf="type === 'link'" class="link">{{text}}</button>
+<button *ngIf="type !== 'heart' && type !== 'login'" [class]="type">{{text}}</button>
 
-<button *ngIf="type === 'text'" class="text">{{text}}</button>
+<button *ngIf="type === 'login'" [class]="type">{{text}} <span>{{link}}</span></button>
 
 <button *ngIf="type === 'heart'" class="heart" (click)="setLike()">
     <svg [ngClass]="like?'heart-icon-liked':'heart-icon'" viewBox="0 0 32 29.6">
