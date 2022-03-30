@@ -14,14 +14,13 @@
     </div>
     <div class="gallery-container">
        
-        <app-slider [kitchens]="kitchens" (sendKitchensEvent)="setKitchen($event)"></app-slider>
+        <app-slider [type]="'horizontal'" [kitchens]="kitchens" (sendKitchensEvent)="setKitchen($event)"></app-slider>
       
-        <!-- <div class="vertical-gallery" *ngIf="kitchenSelected" >
-            <app-slider [photos]="kitchenSelected.photos" ></app-slider>
-        </div>
+        <app-slider [type]="'vertical'" *ngIf="kitchenSelected" [photos]="kitchenSelected.photos" ></app-slider>
+       
         <div class="banner">
             <img src="assets/images/banner.PNG" alt="">
-        </div> -->
+        </div> 
     </div>
    <!--  <app-description 
         *ngIf="itemSelected"

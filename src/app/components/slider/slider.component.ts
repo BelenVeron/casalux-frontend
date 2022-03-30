@@ -18,6 +18,7 @@ export class SliderComponent implements OnInit {
   imageContainerURL = environment.imageContainerURL;
   @Input() photos: Photo[] = [];
   @Input() kitchens: Kitchen[] = [];
+  @Input() type: string = '';
   @Output() sendKitchensEvent: EventEmitter<any> = new EventEmitter();
 
   constructor() { }

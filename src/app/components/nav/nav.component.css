@@ -7,7 +7,7 @@
   bottom: 0;
   left: 0;
   height: 100%;
-  width: 60px;
+  width: 4vw;
   overflow: hidden;
   transition: width 0.05s linear;
   z-index: 1000;

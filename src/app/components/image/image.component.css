@@ -6,8 +6,8 @@
 
 
 .small img {
-    width: 150px;
-    height: 80px;
+    width: auto;
+    height: 15vh;
     object-fit: cover;
     margin: 0px 5px 0px 5px;
     cursor: pointer;
@@ -33,22 +33,20 @@
 }
 
 .medium .inactive {
-    width: 200px;
-    height: 130px;
+    width: 15vw;
+    height: auto;
     position: relative;
     margin-bottom: 10px;
 }
 
 .medium img{
-    width: 200px;
-    height: 130px;
+    width: 15vw;
+    height: auto;
     object-fit: cover;
     margin-bottom: 10px;
 }
 
 .medium .active{
-    width: 200px;
-    height: 130px;
     margin-bottom: 10px;
     position: relative;
     display: flex;
@@ -57,16 +55,16 @@
 }
 
 .medium .active img{
-    width: 150px;
-    height: 90px;
+    width: 13vw;
+    height: auto;
     object-fit: cover;
     opacity: 70%;
 }
 
 .big img{
     position: relative;
-    width: 700px;
-    height: 420px;
+    width: 100%;
+    height: 50vh;
 }
 
 .pointer {
