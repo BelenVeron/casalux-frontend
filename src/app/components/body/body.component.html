@@ -12,23 +12,21 @@
             >
         </app-image>
     </div>
-    <div class="main-gallery">
-        <div class="gallery-container">
-            <div class="horizontal-gallery">
-                <app-slider [kitchens]="kitchens" (sendKitchensEvent)="setKitchen($event)"></app-slider>
-            </div>
-            <div *ngIf="kitchenSelected" class="vertical-gallery">
-                <app-slider [photos]="kitchenSelected.photos" ></app-slider>
-            </div>
-            <div>
-                <img src="assets/images/banner.PNG" alt="">
-            </div>
+    <div class="gallery-container">
+       
+        <app-slider [kitchens]="kitchens" (sendKitchensEvent)="setKitchen($event)"></app-slider>
+      
+        <!-- <div class="vertical-gallery" *ngIf="kitchenSelected" >
+            <app-slider [photos]="kitchenSelected.photos" ></app-slider>
         </div>
+        <div class="banner">
+            <img src="assets/images/banner.PNG" alt="">
+        </div> -->
     </div>
-    <app-description 
+   <!--  <app-description 
         *ngIf="itemSelected"
         [textDescription]="itemSelected.description"
         [contents]="itemSelected.contents"
         [kitchenSelected]="kitchenSelected.name">
-    </app-description>
+    </app-description>  -->
 </div>

@@ -1,14 +1,17 @@
 .title {
     display: flex;
     align-items: center;
+    height: 100px;
 }
 
 h1, h2{
     margin: 25px 0px 0px 8px;
     color: #7b873b;
     font-family: 'Courier New', Courier, monospace;
+    font-size: 26px;
+    max-width: 300px;
 }
 
 img {
-    height: 100px;
+    height: 100%;
 }

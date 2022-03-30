@@ -12,7 +12,7 @@
     position: absolute;
     background-color: rgb(170, 170, 170);
     width: 180px;
-    height: 700px;
+    height: 100%;
     top: 0;
     left: 83%;
     display: flex;
@@ -21,6 +21,7 @@
     justify-content: space-between;
     text-align: center;
     padding: 0px 15px 0px 15px;
+    z-index: 2;
 }
 
 
