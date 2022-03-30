@@ -36,26 +36,6 @@
     color: rgb(133, 133, 133);
 }
 
-.heart {
-    background-color: #d6d6d6;
-    text-decoration: none;
-    border: none;
-    text-align: center;
-    display: flex;
-    padding: 5px 5px;
-    cursor: pointer;
-}
-
-.heart-icon-liked {
-    fill: red;
-    width: 20px;
-}
-
-.heart-icon {
-    fill: rgba(255, 0, 0, 0.397);
-    width: 20px;
-}
-
 .border {
     border: solid 1px rgb(163, 163, 163);
     color: rgb(79, 128, 0);

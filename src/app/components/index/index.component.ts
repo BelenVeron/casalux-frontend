@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FavoriteCollection } from 'src/app/models/favorite/favorite-collection';
-import { FavoritePhoto } from 'src/app/models/favorite/favorite-photo';
 import { Item } from 'src/app/models/item';
 import { Kitchen } from 'src/app/models/kitchen';
 import { Photo } from 'src/app/models/photo';
@@ -15,14 +13,11 @@ import { environment } from 'src/environments/environment';
 export class IndexComponent implements OnInit {
 
   items: Item[] = [];
-  favoriteItems: FavoriteCollection[] = [];
   item!: Item;
-  favoriteItem!: FavoriteCollection;
   imageContainerURL = environment.imageContainerURL;
   active:boolean[] = [];
   photoSelected!: Photo;
-  kitchenSelected!: Kitchen;;
-  favoritePhoto!: FavoritePhoto;
+  kitchenSelected!: Kitchen;
   kitchens: Kitchen[] = []
 
   constructor(
@@ -77,7 +72,6 @@ export class IndexComponent implements OnInit {
           this.setKitchens();
         }
         console.log(this.items)
-        console.log(this.favoriteItems)
       },
       err => {
        

@@ -17,10 +17,11 @@
             <div class="horizontal-gallery">
                 <app-slider [kitchens]="kitchens" (sendKitchensEvent)="setKitchen($event)"></app-slider>
             </div>
-
             <div *ngIf="kitchenSelected" class="vertical-gallery">
-                <h3>CASALUX Luxury Kitchen Collection</h3>
-                <app-slider [photos]="kitchenSelected.photos"></app-slider>
+                <app-slider [photos]="kitchenSelected.photos" ></app-slider>
+            </div>
+            <div>
+                <img src="assets/images/banner.PNG" alt="">
             </div>
         </div>
     </div>
