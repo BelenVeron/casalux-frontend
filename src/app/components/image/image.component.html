@@ -4,8 +4,4 @@
         <h3 *ngIf="text">{{text}}</h3>
         <p *ngIf="isLoading">Loading...</p>
     </div>
-   
-    <div class="carousel" *ngIf="carousel.length">
-        <div [ngClass]="item?' circle circle-icon-selected':'circle circle-icon'" *ngFor="let item of carousel"></div>
-    </div>
 </div>

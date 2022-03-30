@@ -1,5 +1,4 @@
 <app-title></app-title>
-<app-slider></app-slider>
 <app-modal></app-modal>
 <div class="container">
     <div class="gallery-index">
@@ -15,32 +14,14 @@
     </div>
     <div class="main-gallery">
         <div class="gallery-container">
-            <div class="horizontal-gallery" *ngIf="itemSelected">
-                <app-image 
-                    *ngFor="let item of itemSelected.kitchens"
-                    [type]="'small'" 
-                    [src]="imageContainerURL+item.photos[0].image.slice(2)"
-                    (click)="setKitchen(item.id)"
-                    >
-                </app-image>
+            <div class="horizontal-gallery">
+                <app-slider [kitchens]="kitchens" (sendKitchensEvent)="setKitchen($event)"></app-slider>
             </div>
 
-            <div *ngIf="kitchenSelected">
-                <app-image
-                    *ngFor="let item of kitchenSelected.photos"
-                    [type]="'big'" 
-                    [src]="imageContainerURL+item.image.slice(2)"
-                    [carousel]="active">
-                </app-image>
+            <div *ngIf="kitchenSelected" class="vertical-gallery">
+                <h3>CASALUX Luxury Kitchen Collection</h3>
+                <app-slider [photos]="kitchenSelected.photos"></app-slider>
             </div>
-            <h3>CASALUX Luxury Kitchen Collection</h3>
-            <app-button 
-                *ngIf="favoritePhoto"
-                class="heart" 
-                [type]="'heart'"
-                [like]="favoritePhoto.favorite"
-                (sendLike)="sendFavoritePhoto($event)">
-            </app-button>
         </div>
     </div>
     <app-description 

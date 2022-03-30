@@ -16,6 +16,7 @@ export class BodyComponent implements OnInit {
   @Input() items: Item[] = [];
   @Input() itemSelected!: Item;
   @Input() kitchenSelected!: Kitchen;
+  @Input() kitchens: Kitchen[] = []
   srcGalleryImage: string = '';
   imageContainerURL = environment.imageContainerURL;
   @Input() photoSelected!: Photo;
@@ -41,9 +42,7 @@ export class BodyComponent implements OnInit {
     this.items.map(item => {
       if (item.id == id){
         this.itemSelected = item;
-       /*  this.photoSelected.photos = item.photos;
-        this.photo = item.photos[0];
-        this.setFavoritePhoto(); */
+        this.setKitchens();
       }
     })
     this.active = [];
@@ -52,24 +51,27 @@ export class BodyComponent implements OnInit {
     }
   }
 
+  setKitchens(): void {
+    this.kitchens = [];
+    this.itemSelected.kitchens.map(kitchen => {
+      this.kitchens.push(kitchen);
+    })
+  }
+
   /**
    * Set photo in the horizontal gallery, depend
    * of the number in the kitchen
    * 
-   * @param id 
+   * @param data 
    */
-  setKitchen(id: string): void {
+  setKitchen(data: any): void {
+    console.log(data.photos)
     this.itemSelected.kitchens.map(kitchen => {
-      if (kitchen.id == id){
+      if (kitchen.id == data.id){
         this.kitchenSelected = kitchen;
+        console.log(this.kitchenSelected.photos)
       }
-    })
-   /* this.kitchenSelected.photos.map(item => {
-      if (item.id == id){
-        this.photoSelected = item;
-        this.setFavoritePhoto();
-      }
-    }) */
+    });
   }
 
   /**

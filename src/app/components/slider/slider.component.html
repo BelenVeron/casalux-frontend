@@ -1,29 +1,51 @@
 <div class="container">
 
-<!--   <swiper
+ <!--  <swiper
+    *ngIf="kitchens"
     [slidesPerView]="3"
     [spaceBetween]="30"
     [slidesPerGroup]="3"
     [loop]="true"
     [loopFillGroupWithBlank]="true"
+    [style.--swiper-navigation-color]="'black'"
+    [navigation]="true"
+    (slideChange)="onSlideChange($event)"
+    #swipe
+    class="horizontal-gallery"
+  >
+    <ng-template swiperSlide *ngFor="let item of kitchens, let i=index">
+      <app-image
+        [type]="'small'" 
+        [src]="imageContainerURL+item.photos[0].image.slice(2)"
+        (slideChange)="sendKitchen(item)"
+        (click)="sendKitchen(item)"
+        >
+      </app-image> 
+  </ng-template>
+</swiper> 
+-->
+ 
+  <swiper
+    *ngIf="photos"
+    [direction]="'vertical'"
     [pagination]="{
       clickable: true
     }"
-    [navigation]="true"
-    class="mySwiper"
+    (swiper)="onSwiper($event)"
+    (slideChange)="onSlideChange($event)"
+    [style.--swiper-theme-color]="'green'"
+    class="vertical-gallery"
   >
-    <ng-template swiperSlide>Slide 1</ng-template
-    ><ng-template swiperSlide>Slide 2</ng-template
-    ><ng-template swiperSlide>Slide 3</ng-template
-    ><ng-template swiperSlide>Slide 4</ng-template
-    ><ng-template swiperSlide>Slide 5</ng-template
-    ><ng-template swiperSlide>Slide 6</ng-template
-    ><ng-template swiperSlide>Slide 7</ng-template
-    ><ng-template swiperSlide>Slide 8</ng-template
-    ><ng-template swiperSlide>Slide 9</ng-template>
-  </swiper> -->
+  <ng-template swiperSlide *ngFor="let item of photos, let i=index">
+        <app-image
+          [type]="'big'" 
+          [src]="imageContainerURL+item.image.slice(2)"
+          >
+        </app-image>
+    </ng-template>
+  </swiper> 
 
-  <swiper
+ <!--  <swiper
     [direction]="'vertical'"
     [pagination]="{
       clickable: true
@@ -39,5 +61,5 @@
     ><ng-template swiperSlide>Slide 7</ng-template
     ><ng-template swiperSlide>Slide 8</ng-template
     ><ng-template swiperSlide>Slide 9</ng-template>
-  </swiper>
+  </swiper> -->
 </div>

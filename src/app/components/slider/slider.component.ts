@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { SwiperComponent } from "swiper/angular";
 import SwiperCore, { Pagination, Navigation } from "swiper";
+import { environment } from 'src/environments/environment';
+import { Photo } from 'src/app/models/photo';
+import { Kitchen } from 'src/app/models/kitchen';
 
 // install Swiper modules
 SwiperCore.use([Pagination, Navigation]);
@@ -12,6 +15,11 @@ SwiperCore.use([Pagination, Navigation]);
 })
 export class SliderComponent implements OnInit {
 
+  imageContainerURL = environment.imageContainerURL;
+  @Input() photos: Photo[] = [];
+  @Input() kitchens: Kitchen[] = [];
+  @Output() sendKitchensEvent: EventEmitter<any> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
@@ -20,8 +28,13 @@ export class SliderComponent implements OnInit {
   onSwiper(swiper:any) {
     console.log(swiper);
   }
-  onSlideChange() {
-    console.log('slide change');
+  onSlideChange(swiper:any) {
+    console.log('slide change', swiper);
+  }
+
+  sendKitchen(data:any){
+    console.log('slider', data)
+    this.sendKitchensEvent.emit(data)
   }
 
 }
