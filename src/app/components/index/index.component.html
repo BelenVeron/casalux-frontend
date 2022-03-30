@@ -1,11 +1,13 @@
-<app-nav [itemButtons]="itemButtons" (emitterId)="setItem($event)"></app-nav>
+<app-nav></app-nav>
 <app-body 
-    *ngIf="item" 
-    [item]="item" 
-    [photo]="item.kitchens[0].photos[0]"
-    [kitchenSelected]="item.kitchens[0]"
+    *ngIf="items" 
+    [items]="items"
+    [itemSelected]="items[0]" 
     [active]="active"
+    [kitchenSelected]="kitchenSelected"
+    [photoSelected]="photoSelected"
     [favoriteItem]="favoriteItem"
-    [favoritePhoto]="favoriteItem.kitchens[0].photos[0]"
-    (sendFavoriteItem)="setFavoriteItems($event)">
+    [favoritePhoto]="favoritePhoto"
+    (sendFavoriteItem)="setFavoriteItems($event)"
+   >
 </app-body>

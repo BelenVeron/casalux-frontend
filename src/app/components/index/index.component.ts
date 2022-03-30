@@ -3,7 +3,6 @@ import { FavoriteCollection } from 'src/app/models/favorite/favorite-collection'
 import { FavoriteKitchen } from 'src/app/models/favorite/favorite-kitchen';
 import { FavoritePhoto } from 'src/app/models/favorite/favorite-photo';
 import { Item } from 'src/app/models/item';
-import { ItemButton } from 'src/app/models/item-button';
 import { Kitchen } from 'src/app/models/kitchen';
 import { Photo } from 'src/app/models/photo';
 import { CollectionService } from 'src/app/services/collection.service';
@@ -18,11 +17,13 @@ export class IndexComponent implements OnInit {
 
   items: Item[] = [];
   favoriteItems: FavoriteCollection[] = [];
-  itemButtons: ItemButton[] = [];
   item!: Item;
   favoriteItem!: FavoriteCollection;
   imageContainerURL = environment.imageContainerURL;
   active:boolean[] = [];
+  photoSelected!: Photo;
+  kitchenSelected!: Kitchen;;
+  favoritePhoto!: FavoritePhoto;
 
   constructor(
     private collectionService: CollectionService
@@ -38,31 +39,22 @@ export class IndexComponent implements OnInit {
    * 
    * @param id 
    */
-  setItem(id: string): void {
+  setPhoto(id: string): void {
     this.active = [];
     this.items.map(item => {
       if (item.id == id){
         this.item = item;
         this.setFavoriteItem();
-        for (let index = 0; index < item.kitchens.length; index++) {
-          (index === 0)?this.active.push(true):this.active.push(false);
-          
-        }
+        this.setActive();
       }
     })
   }
 
-  /**
-   * Set the name and id of the items to
-   * send to the navigator
-   */
-  setItemButton(): void {
-    this.items.forEach(item => {
-      this.itemButtons.push(new ItemButton(
-        item.id,
-        item.name
-      ))
-    });
+  setActive(): void {
+    for (let index = 0; index < this.items.length; index++) {
+      (index === 0)?this.active.push(true):this.active.push(false);
+      
+    }
   }
 
 
@@ -101,6 +93,7 @@ export class IndexComponent implements OnInit {
         this.setFavoriteKitchen(collection.kitchens)
       ));
     });
+    this.favoritePhoto = this.favoriteItems[0].kitchens[0].photos[0];
   }
 
   setFavoriteKitchen(kitchens: Kitchen[]): FavoriteKitchen[] {
@@ -135,11 +128,14 @@ export class IndexComponent implements OnInit {
     this.collectionService.get().subscribe(
       data => {
         this.items = data;
-        this.setItemButton();
         this.setFavorites();
+        this.setActive();
         if (data.length) {
-          this.setItem(data[0].id);
+          this.photoSelected = this.items[0].kitchens[0].photos[0];
+          this.kitchenSelected = this.items[0].kitchens[0];
         }
+        console.log(this.items)
+        console.log(this.favoriteItems)
       },
       err => {
        

@@ -12,6 +12,8 @@ import { ImageComponent } from './components/image/image.component';
 import { DescriptionComponent } from './components/description/description.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
+import { SwiperModule } from 'swiper/angular';
+import { SliderComponent } from './components/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,13 @@ import { CheckboxComponent } from './components/checkbox/checkbox.component';
     ImageComponent,
     DescriptionComponent,
     ModalComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    SwiperModule
   ],
   providers: [],
   bootstrap: [AppComponent]
