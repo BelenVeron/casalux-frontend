@@ -27,6 +27,7 @@
 
 .less .description {
     display: block;
+    font-size: smaller;
 }
 
 .vertical-gallery {

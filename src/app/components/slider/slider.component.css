@@ -1,16 +1,13 @@
 
 .vertical-gallery {
-  width: 50vw;
-  height: 50vh;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  width: 54vw;
+  height: 55vh;
 }
 
 .horizontal-gallery {
   width: 40vw;
-  height: 15vh;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  height: 20vh;
+  margin-top: 4vh;
 }
 
 
