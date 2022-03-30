@@ -14,6 +14,10 @@
     transition: .5s;
 }
 
+.small .active img {
+    border: 3px solid green;
+}
+
 
 .small-medium .inactive{
     width: 150px;

@@ -56,6 +56,7 @@ export class BodyComponent implements OnInit {
     this.itemSelected.kitchens.map(kitchen => {
       this.kitchens.push(kitchen);
     })
+    this.kitchenSelected = this.kitchens[0]
   }
 
   /**
